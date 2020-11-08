@@ -1,0 +1,43 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+HISTCONTROL=ignoreboth
+shopt -s histappend
+#HISTSIZE=1000
+#HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+alias ip='ip -color=auto'
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# man color
+man() {
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    command man "$@"
+}
+
+
+PS1="\[\033[1;95m\]\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[\[\033[0;31m\]\342\234\227\[\033[1;95m\]]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '\[\033[0;31m\]\h'; else echo '\[\033[0;96m\]\h'; fi)\[\033[1;95m\]]\342\224\200[\[\033[0;32m\]\w\[\033[1;95m\]]\n\[\033[1;95m\]\342\224\224\342\224\200\342\224\200> \[\033[0m\]"
+
+
+neofetch  -L --ascii_colors 13 13 | lolcat
