@@ -195,6 +195,11 @@ ttf-mgopen -- AUR
 
 <br><br>
 
+## Firefox right click selects first option
+
+	about:config
+	ui.context_menus.after_mouseup  true
+
 ### Spell check
 
 	aspell-en

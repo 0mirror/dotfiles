@@ -3,3 +3,5 @@
 #
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
+
+[[ $(fgconsole 2>/dev/null) == 1 ]] && cmatrix -C magenta
