@@ -60,7 +60,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = div i3 div xwindow
 modules-center = mpd date
-modules-right = mic pulseaudio xbacklight xkeyboard cpu memory-usage wlan eth battery div
+modules-right = pacman mic pulseaudio xbacklight xkeyboard cpu memory-usage wlan eth battery div
 
 tray-position = right
 tray-padding = 2
@@ -87,6 +87,15 @@ interval = 2
 exec = [[ $(pulsemixer --id source-1 --get-mute) == 1 ]] && echo muted
 label = %output%
 format = <label>
+
+
+[module/pacman]
+type = custom/script
+interval = 3600
+exec = [[ $(pacman -Qu | wc -l) == 0 ]] || pacman -Qu | wc -l
+label = %output%
+format = <label>
+
 
 [module/xwindow]
 type = internal/xwindow
