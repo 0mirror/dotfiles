@@ -60,7 +60,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = div i3 div xwindow
 modules-center = mpd date
-modules-right = xbacklight alsa pulseaudio xkeyboard cpu memory-usage wlan eth battery div
+modules-right = mic pulseaudio xbacklight xkeyboard cpu memory-usage wlan eth battery div
 
 tray-position = right
 tray-padding = 2
@@ -80,6 +80,13 @@ tray-padding = 2
 type = custom/text
 content = "   "
 
+
+[module/mic]
+type = custom/script
+interval = 2
+exec = [[ $(pulsemixer --id source-1 --get-mute) == 1 ]] && echo muted
+label = %output%
+format = <label>
 
 [module/xwindow]
 type = internal/xwindow
@@ -132,8 +139,8 @@ ws-icon-4 = 5;♞
 ws-icon-default = ♟
 
 label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode-foreground = ${colors.text}
+label-mode-background = ${colors.pink}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
@@ -153,7 +160,7 @@ label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
-label-urgent-background = ${colors.alert}
+label-urgent-background = ${colors.pink}
 label-urgent-padding = 2
 
 ; Separator in between workspaces
@@ -187,10 +194,10 @@ bar-indicator-foreground = #fff
 bar-indicator-font = 2
 bar-fill = ─
 bar-fill-font = 2
-bar-fill-foreground = #9f78e1
+bar-fill-foreground = ${colors.purple}
 bar-empty = ─
 bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
+bar-empty-foreground = ${colors.purple}
 
 [module/backlight-acpi]
 inherit = module/xbacklight
@@ -225,12 +232,12 @@ label = %percentage:2%%
 
 [module/wlan]
 type = internal/network
-interface = net1
+interface = wlp1s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
-label-connected = %essid%
+format-connected-underline = ${colors.purple}
+label-connected = %upspeed% %downspeed%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -289,15 +296,15 @@ label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = 🔇 muted
-label-muted-foreground = #666
+label-muted-foreground = ${colors.text}
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-0 = ${colors.pink}
+bar-volume-foreground-1 = ${colors.pink}
+bar-volume-foreground-2 = ${colors.pink}
+bar-volume-foreground-3 = ${colors.pink}
+bar-volume-foreground-4 = ${colors.pink}
+bar-volume-foreground-5 = ${colors.pink}
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = |
@@ -306,7 +313,7 @@ bar-volume-fill = ─
 bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+bar-volume-empty-foreground = ${colors.purple}
 
 [module/alsa]
 type = internal/alsa
@@ -343,10 +350,10 @@ adapter = AC
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = ${colors.pink}
 
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging-underline = ${colors.purple}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
