@@ -92,8 +92,9 @@ format = <label>
 [module/pacman]
 type = custom/script
 interval = 3600
-exec = $HOME/scripts/suid-scripts/pacman_check_updates
-label = -%output%-
+;exec = $HOME/scripts/suid-scripts/pacman_check_updates
+exec = checkupdates | wc -l | tail -n1
+label = -%output%- 
 format = <label>
 
 
