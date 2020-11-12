@@ -7,6 +7,7 @@ dosfstools
 efibootmgr
 feh
 firefox
+flameshot
 gcc
 git
 grub
@@ -16,6 +17,8 @@ linux
 linux-firmware
 linux-lts
 lolcat
+man-db
+man-pages
 neofetch
 networkmanager
 pavucontrol
