@@ -85,15 +85,15 @@ content = "   "
 type = custom/script
 interval = 2
 exec = [[ $(pulsemixer --id source-1 --get-mute) == 1 ]] && echo muted
-label = %output%
+label = %output% 
 format = <label>
 
 
 [module/pacman]
 type = custom/script
 interval = 3600
-exec = [[ $(pacman -Qu | wc -l) == 0 ]] || pacman -Qu | wc -l
-label = %output%
+exec = $HOME/scripts/suid-scripts/pacman_check_updates
+label = -%output%-
 format = <label>
 
 
