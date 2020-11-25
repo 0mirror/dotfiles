@@ -17,6 +17,7 @@ shopt -s checkwinsize
 alias ll='ls -lh'
 alias la='ls -lah'
 alias gits='git status'
+alias gitcm='git commit -m'
 alias flameshot='flameshot gui -d 2000'
 
 alias ls='ls --color=auto'
