@@ -23,6 +23,7 @@ alias ff='firefox'
 alias ffinc='firefox --private-window'
 alias camoff='sudo modprobe -r uvcvideo'
 alias camon='sudo modprobe uvcvideo'
+alias clear='clear; ~/scripts/hellofriend.sh'
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
