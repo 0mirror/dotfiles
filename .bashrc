@@ -13,6 +13,9 @@
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# enable vi mode
+set -o vi
+
 alias ..='cd ..'
 alias ll='ls -lh'
 alias la='ls -lah'
@@ -24,6 +27,7 @@ alias ffinc='firefox --private-window'
 alias camoff='sudo modprobe -r uvcvideo'
 alias camon='sudo modprobe uvcvideo'
 alias clear='clear; ~/scripts/hellofriend.sh'
+alias battery='cat /sys/class/power_supply/BAT0/capacity | while read x ; do echo BAT0 = $x % ; done'
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
