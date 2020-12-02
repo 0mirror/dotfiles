@@ -19,21 +19,46 @@ set -o vi
 alias ..='cd ..'
 alias ll='ls -lh'
 alias la='ls -lah'
+
+# git
+alias pacsyu='sudo pacman -Syu'
+alias pacs='sudo pacman -S'
+alias pacss='pacman -Ss'
+
+# git
 alias gits='git status'
 alias gitcm='git commit -m'
+
+# apps
+alias r='ranger'
 alias flameshot='flameshot gui -d 2000'
 alias ff='firefox'
 alias ffinc='firefox --private-window'
+
+# webcam
 alias camoff='sudo modprobe -r uvcvideo'
 alias camon='sudo modprobe uvcvideo'
+
+# system
 alias clear='clear; ~/scripts/hellofriend.sh'
 alias battery='cat /sys/class/power_supply/BAT0/capacity | while read x ; do echo BAT0 = $x % ; done'
+alias poff='shutdown 0'
 
+## get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+## get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+
+# for color output
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias ip='ip -color=auto'
 
+# safety
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -83,7 +108,13 @@ Green="\[\033[0;32m\]"
 HICyan="\[\033[0;96m\]"
 
 
-PS1="${BHIPurple}\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[${Red}\342\234\227${BHIPurple}]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '${Red}\h'; else echo "${HICyan}\h"; fi)${BHIPurple}]\342\224\200[${Green}\w${BHIPurple}]\n${BHIPurple}\342\224\224\342\224\200\342\224\200> ${NC}"
+#PS1="${BHIPurple}\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[${Red}\342\234\227${BHIPurple}]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '${Red}\h'; else echo "${HICyan}\h"; fi)${BHIPurple}]\342\224\200[${Green}\w${BHIPurple}]\n${BHIPurple}\342\224\224\342\224\200\342\224\200> ${NC}"
+
+# more readable PS1
+PS1="${BHIPurple}┌─\
+\$([[ \$? != 0 ]] && echo \"[${Red}✗${BHIPurple}]─\")\
+[$(if [[ ${EUID} == 0 ]]; then echo '${Red}\h'; else echo "${HICyan}\h"; fi)${BHIPurple}]─[${Green}\w${BHIPurple}]\n\
+${BHIPurple}└──> ${NC}"
 
 
 neofetch  -L --ascii_colors 13 13 | lolcat
