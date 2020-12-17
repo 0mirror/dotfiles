@@ -7,18 +7,28 @@
 
 [[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx
 
-#HISTFILESIZE=2000
+export HISTFILESIZE=2000
+export HISTCONTROL=ignoredups:erasedups
+export EDITOR="vim"
+export VISUAL="code"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# auto cd into directory if not valid command
+shopt -s autocd
+
 # enable vi mode
 set -o vi
+bind -m vi-command 'Control-l: clear-sceen'
+bind -m vi-insert 'Control-l: clear-screen'
 
 alias ..='cd ..'
 alias ll='ls -lh'
 alias la='ls -lah'
+alias lle='exa -l --color=always'
+alias lae='exa -la --color=always'
 
 # git
 alias pacsyu='sudo pacman -Syu'
@@ -51,6 +61,15 @@ alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 ## get top process eating cpu ##
 alias pscpu='ps auxf | sort -nr -k 3'
 alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+
+# youtube-dl
+alias yta-aac="youtube-dl --extract-audio --audio-format aac "
+alias yta-best="youtube-dl --extract-audio --audio-format best "
+alias yta-flac="youtube-dl --extract-audio --audio-format flac "
+alias yta-m4a="youtube-dl --extract-audio --audio-format m4a "
+alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
+alias yta-wav="youtube-dl --extract-audio --audio-format wav "
+alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 
 # for color output
 alias ls='ls --color=auto'
