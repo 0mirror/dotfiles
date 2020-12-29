@@ -1,11 +1,17 @@
-adobe-source-sans-pro-fonts 3.028-1
-ttf-anonymous-pro 1.003-5
-ttf-bitstream-vera 1.10-14
-ttf-dejavu 2.37+18+g9b5d1b2f-2
-ttf-droid 20121017-8
-ttf-font-awesome 5.15.1-1
-ttf-liberation 2.1.1-1
-ttf-ubuntu-font-family 0.83-6
-otf-font-awesome 5.15.1-1
-otf-openmoji 12.4.0-1
-noto-fonts-emoji 20200916-1
+adobe-source-sans-pro-fonts
+ttf-anonymous-pro
+ttf-bitstream-vera
+ttf-dejavu
+ttf-droid
+ttf-font-awesome
+ttf-liberation
+ttf-ubuntu-font-family
+otf-font-awesome
+otf-openmoji
+noto-fonts-emoji
+
+ttf-baekmuk
+ttf-sazanami
+ttf-inconsolata
+noto-fonts
+noto-fonts-cjk
