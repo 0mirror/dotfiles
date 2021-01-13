@@ -1,6 +1,6 @@
 #!/bin/bash
 
-watchlater="https://www.youtube.com/playlist?list=PLcGk9lU0v6NUAQbgTBAjtG4-kyl0_Hcnm"
+watchlater="https://www.youtube.com/playlist?list="
 DMENU_COLORS="-nb #222222 -nf #bbbbbb -sb #9D65C9 -sf #eeeeee"
 DMENU_SETTINGS="-i -l 40"
 NEW_LINE=$'\n'
