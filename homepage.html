@@ -53,9 +53,13 @@
     <script>
         // Search on enter key event
         document.getElementById("search-field").addEventListener("keydown",  event => { 
-            if (event.keyCode === 13) {
+            if (event.keyCode === 220) {
                 var val = document.getElementById("search-field").value;
                 window.open("https://duckduckgo.com/?q=" + val);
+            }
+            if (event.keyCode === 13) {
+                var val = document.getElementById("search-field").value;
+                window.open("https://www.startpage.com/do/dsearch?query=" + val);
             }
         });
         // Get current time and format
